@@ -24,6 +24,10 @@ config/name="DeepSpaceEscape"
 run/main_scene="res://MainSystem.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+SceneChanger="*res://SceneChanger.tscn"
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
