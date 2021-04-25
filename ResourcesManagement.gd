@@ -1,16 +1,8 @@
 extends Node
 
-# TODO figure out how to make this a singleton that keeps the state between scenes 
-# or load the resource variables from a global.gd
-
-var energy = 100
-var food = 100  # decreases overtime based on number of people
-var materials = 100
-var people = 100
 var foodDecreaseRatePerPeople = 0.1
 var timeCounter = 0
 onready var previousTime = OS.get_ticks_msec()
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,14 +20,23 @@ func _process(delta):
 		decrease_food()
 		timeCounter = timeCounter - 1000
 		draw_text()
+		check_game_over()
 	pass
 
+func _input(ev):
+	if Input.is_action_pressed("give_food"):
+		Global.food += 10
 
 func decrease_food():
-	food -= floor(foodDecreaseRatePerPeople * people)
-	food = max(food, 0)
+	Global.food -= floor(foodDecreaseRatePerPeople * Global.people)
+	Global.food = max(Global.food, 0)
 	
 func draw_text():
 	# ugly i know =(
-	var text = "Resources \n" + "Food: " + str(food) + "\n" + "Energy: " + str(energy) + "\n" + "People: " + str(people) + "\n" + "Materials: " + str(materials)
+	var text = "Resources \n" + "Food: " + str(Global.food) + "\n" + "Energy: " + str(Global.energy) + "\n" + "People: " + str(Global.people) + "\n" + "Materials: " + str(Global.materials)
 	get_node("/root/Scene/Resources/ResourcesText").set_text(text)
+
+func check_game_over():
+	if Global.food <= 0:
+		print("game technically over...")
+		pass

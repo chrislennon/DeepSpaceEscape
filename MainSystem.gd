@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var systemClock = rand_range(20, 10)
 var traversalDistance = OS.get_window_size().y
 var traversalSpeed = traversalDistance/systemClock
@@ -18,8 +17,9 @@ func jumpShip():
 	print("Execute System transition")
 	# TODO Scene transition FTL online/animation flash/load next system
 	SceneChanger.change_scene("res://MainSystem.tscn", 0.1)
+	Global.levelnumber +=1 
 	
-					
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Initialize scene timer
@@ -27,10 +27,13 @@ func _ready():
 	
 	# debug data
 	var overlay = load("res://components/debug_overlay/debug_overlay.tscn").instance()
-	overlay.add_stat("Selected Star ", self, "getSelectedStar", true)
+	overlay.add_stat("Selected Star: ", self, "getSelectedStar", true)
+	overlay.add_stat("Food: ", Global, "food", false)
+	overlay.add_stat("Energy: ", Global, "energy", false)
+	overlay.add_stat("Materials: ", Global, "materials", false)
+	overlay.add_stat("People: ", Global, "people", false)
+	overlay.add_stat("System Level: ", Global, "levelnumber", false)
 	add_child(overlay)
-	
-	# TODO Scene initiation flash prompt X seconds in this system
 	
 	pass # Replace with function body.
 
@@ -39,7 +42,9 @@ func _ready():
 func _process(delta):
 	# Progress scene timer
 	systemClock -=delta
+	
 	get_node("System Clock/Time").set_text(String(systemClock))
+	# TODO Warning prompt X seconds in this system
 	
 	if systemClock <= 0 and !jumping:
 		jumpShip()

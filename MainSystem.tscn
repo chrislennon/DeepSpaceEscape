@@ -21,6 +21,9 @@ script = ExtResource( 4 )
 position = Vector2( 528, 599 )
 script = ExtResource( 3 )
 
+[node name="ResourcesManagement" type="Node" parent="PlayerShip"]
+script = ExtResource( 8 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShip"]
 shape = SubResource( 1 )
 
@@ -123,9 +126,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ResourcesManagement" type="Node" parent="."]
-script = ExtResource( 8 )
-
 [node name="JumpText" type="TextureRect" parent="."]
 visible = false
 margin_left = 269.962
@@ -138,6 +138,12 @@ __meta__ = {
 }
 
 [node name="Planet" parent="." instance=ExtResource( 14 )]
+
+[node name="Planet2" parent="." instance=ExtResource( 14 )]
+margin_left = 596.863
+margin_top = 41.2725
+margin_right = 1620.86
+margin_bottom = 1065.27
 
 [connection signal="pressed" from="NavButton" to="." method="_on_NavButton_pressed"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_PopupMenu_id_pressed"]
