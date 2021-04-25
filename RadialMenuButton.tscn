@@ -12,11 +12,11 @@
 [ext_resource path="res://assets/icons/hospital-cross.png" type="Texture" id=10]
 [ext_resource path="res://RadialMenuButton.gd" type="Script" id=11]
 
-[sub_resource type="InputEventAction" id=3]
+[sub_resource type="InputEventAction" id=1]
 action = "ui_focus_next"
 
 [sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 3 )
+shortcut = SubResource( 1 )
 
 [node name="RadialMenuButton" type="TextureButton"]
 margin_left = 469.053
@@ -31,12 +31,17 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+radius = 150
 
 [node name="Buttons" type="Control" parent="."]
-margin_left = -469.053
-margin_top = -339.884
-margin_right = -429.053
-margin_bottom = -299.884
+anchor_left = 2.0
+anchor_top = 1.5
+anchor_right = 2.0
+anchor_bottom = 2.0
+margin_left = -100.0
+margin_top = -100.891
+margin_right = -50.0
+margin_bottom = -50.8909
 __meta__ = {
 "_edit_use_anchors_": false
 }

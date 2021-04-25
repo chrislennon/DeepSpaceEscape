@@ -17,4 +17,5 @@ func _ready():
 
 
 func _on_PlanetAction_pressed():
+	# This will probably be handled by the RadialMenu instead
 	pass # Replace with function body.

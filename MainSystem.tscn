@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://space2.2.jpg" type="Texture" id=1]
 [ext_resource path="res://spaceship1.png" type="Texture" id=2]
@@ -13,16 +13,17 @@
 [ext_resource path="res://optionA.png" type="Texture" id=11]
 [ext_resource path="res://optionB.png" type="Texture" id=12]
 [ext_resource path="res://Jump.png" type="Texture" id=13]
+[ext_resource path="res://Planet.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[sub_resource type="InputEventAction" id=4]
+[sub_resource type="InputEventAction" id=5]
 action = "ui_focus_next"
 
-[sub_resource type="ShortCut" id=5]
-shortcut = SubResource( 4 )
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 5 )
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 4 )
@@ -157,19 +158,28 @@ gravity_scale = 0.0
 script = ExtResource( 6 )
 
 [node name="RadialMenuButton" parent="PlanetObject" instance=ExtResource( 5 )]
-margin_left = -21.947
-margin_top = -40.116
-margin_right = 42.053
-margin_bottom = 23.884
-shortcut = SubResource( 5 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+shortcut = SubResource( 3 )
+stretch_mode = 5
+radius = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlanetObject"]
 scale = Vector2( 10, 10 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="PlanetObject"]
 scale = Vector2( 0.1, 0.1 )
+z_index = -1
 texture = ExtResource( 7 )
+
+[node name="Planet" parent="." instance=ExtResource( 14 )]
 
 [connection signal="pressed" from="NavButton" to="." method="_on_NavButton_pressed"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_PopupMenu_id_pressed"]
