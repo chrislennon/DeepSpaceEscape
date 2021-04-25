@@ -60,3 +60,13 @@ func _on_PopupMenu_id_pressed(id):
 	print(id)
 	selectedStar = id
 	pass 
+	
+func _input(ev):
+	if Input.is_action_pressed("launch_shuttle"):
+		if Global.shuttles > 0:
+			Global.shuttles -= 1
+			var shuttle = preload("res://components/shuttle/shuttle.tscn").instance()
+			print("fire shuttle")
+			print($Planet.rect_global_position)
+			shuttle.init($Planet.rect_global_position, $PlayerShip.position)
+			get_parent().add_child(shuttle)

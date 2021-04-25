@@ -138,6 +138,10 @@ __meta__ = {
 }
 
 [node name="Planet" parent="." instance=ExtResource( 14 )]
+margin_left = 8.73071
+margin_top = 2.3811
+margin_right = 1032.73
+margin_bottom = 1026.38
 
 [node name="Planet2" parent="." instance=ExtResource( 14 )]
 margin_left = 596.863

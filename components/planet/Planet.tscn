@@ -10,16 +10,13 @@ action = "ui_focus_next"
 [sub_resource type="ShortCut" id=2]
 shortcut = SubResource( 1 )
 
-[node name="Planet" type="TextureButton"]
+[node name="Planet" type="TextureRect"]
 margin_right = 1024.0
 margin_bottom = 1024.0
 rect_scale = Vector2( 0.1, 0.1 )
 rect_pivot_offset = Vector2( 150, 150 )
-texture_normal = ExtResource( 2 )
+texture = ExtResource( 2 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 522.867, 207.887 )
@@ -34,5 +31,3 @@ margin_right = 32.0
 margin_bottom = 64.0
 shortcut = SubResource( 2 )
 radius = 100
-
-[connection signal="pressed" from="." to="." method="_on_PlanetAction_pressed"]
