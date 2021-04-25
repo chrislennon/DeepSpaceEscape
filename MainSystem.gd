@@ -23,7 +23,8 @@ func jumpShip():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Initialize scene timer
-	get_node("System Clock/Time").set_text(String(systemClock))
+	var display_time = "%.1f" % (systemClock)
+	get_node("System Clock/Time").set_text(display_time)
 	
 	# debug data
 	var overlay = load("res://components/debug_overlay/debug_overlay.tscn").instance()
@@ -56,8 +57,8 @@ func createPlanet():
 func _process(delta):
 	# Progress scene timer
 	systemClock -=delta
-	
-	get_node("System Clock/Time").set_text(String(systemClock))
+	var display_time = "%.1f" % (systemClock)
+	get_node("System Clock/Time").set_text(display_time)
 	# TODO Warning prompt X seconds in this system
 	
 	if systemClock <= 0 and !jumping:

@@ -9,7 +9,6 @@ export var resourceId = 0
 onready var healthbar = $HealthBar
 
 func _ready():
-	hide()
 	if resourceId == 0:
 		healthbar.max_value = Global.max_food
 	if resourceId == 1:
