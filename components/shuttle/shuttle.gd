@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 func init(dest, start_position):
 	rect_global_position = start_position
-	destination = dest
+	destination = dest.rect_global_position
 	print(dest)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

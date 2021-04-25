@@ -35,8 +35,22 @@ func _ready():
 	overlay.add_stat("System Level: ", Global, "levelnumber", false)
 	add_child(overlay)
 	
+	# Planet Generation
+	var planet_box = $PlanetBox
+	for n in rand_range(4, 2):
+		var new_planet = createPlanet()
+		new_planet.rect_global_position.x = rand_range(0, 1024)
+		new_planet.rect_global_position.y = rand_range(0, 600)
+		new_planet.connect("call_shuttle", $PlayerShip, "launch_shuttle")
+		planet_box.add_child(new_planet)
+	
 	pass # Replace with function body.
 
+func createPlanet():
+	var planet = load("res://components/planet/Planet.tscn").instance()
+	planet.init(Global.levelnumber)
+	return planet
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -63,10 +77,6 @@ func _on_PopupMenu_id_pressed(id):
 	
 func _input(ev):
 	if Input.is_action_pressed("launch_shuttle"):
-		if Global.shuttles > 0:
-			Global.shuttles -= 1
-			var shuttle = preload("res://components/shuttle/shuttle.tscn").instance()
-			print("fire shuttle")
-			print($Planet.rect_global_position)
-			shuttle.init($Planet.rect_global_position, $PlayerShip.position)
-			get_parent().add_child(shuttle)
+		$PlayerShip.launch_shuttle($PlanetBox/Planet.rect_global_position)
+
+

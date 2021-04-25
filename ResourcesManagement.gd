@@ -21,6 +21,10 @@ func _process(delta):
 		timeCounter = timeCounter - 1000
 		draw_text()
 		check_game_over()
+		get_node("/root/Scene").find_node("Food").update_healthbar(Global.food)
+		get_node("/root/Scene").find_node("People").update_healthbar(Global.people)
+		get_node("/root/Scene").find_node("Energy").update_healthbar(Global.energy)
+		get_node("/root/Scene").find_node("Materials").update_healthbar(Global.materials)
 	pass
 
 func _input(ev):
@@ -40,3 +44,5 @@ func check_game_over():
 	if Global.food <= 0:
 		print("game technically over...")
 		pass
+
+#$HealthDisplay.update_healthbar(health)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/space2.2.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/spaceship1.png" type="Texture" id=2]
 [ext_resource path="res://components/player_ship/PlayerShip.gd" type="Script" id=3]
 [ext_resource path="res://MainSystem.gd" type="Script" id=4]
+[ext_resource path="res://components/health_bar/HealthDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://components/health_bar/person.png" type="Texture" id=6]
+[ext_resource path="res://components/health_bar/shiny-apple.png" type="Texture" id=7]
 [ext_resource path="res://ResourcesManagement.gd" type="Script" id=8]
 [ext_resource path="res://assets/black.png" type="Texture" id=9]
 [ext_resource path="res://components/nav_button/NavButton.gd" type="Script" id=10]
@@ -11,6 +14,8 @@
 [ext_resource path="res://assets/optionB.png" type="Texture" id=12]
 [ext_resource path="res://assets/Jump.png" type="Texture" id=13]
 [ext_resource path="res://components/planet/Planet.tscn" type="PackedScene" id=14]
+[ext_resource path="res://components/health_bar/gold-stack.png" type="Texture" id=15]
+[ext_resource path="res://components/health_bar/power-lightning.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -58,6 +63,7 @@ margin_bottom = 58.0
 text = "Item Panel"
 
 [node name="Resources" type="PanelContainer" parent="."]
+visible = false
 margin_left = 2.0
 margin_top = 474.0
 margin_right = 173.0
@@ -137,17 +143,91 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Planet" parent="." instance=ExtResource( 14 )]
-margin_left = 8.73071
-margin_top = 2.3811
-margin_right = 1032.73
-margin_bottom = 1026.38
+[node name="PlanetBox" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Planet2" parent="." instance=ExtResource( 14 )]
-margin_left = 596.863
-margin_top = 41.2725
-margin_right = 1620.86
-margin_bottom = 1065.27
+[node name="Planet" parent="PlanetBox" instance=ExtResource( 14 )]
+visible = false
+margin_left = 11.8777
+margin_top = 16.2189
+margin_right = 1035.88
+margin_bottom = 1040.22
+
+[node name="Planet2" parent="PlanetBox" instance=ExtResource( 14 )]
+visible = false
+margin_left = 701.573
+margin_top = 50.6557
+margin_right = 1725.57
+margin_bottom = 1074.66
+
+[node name="ResourceBox" type="Control" parent="."]
+margin_left = 4.15161
+margin_top = 412.802
+margin_right = 304.152
+margin_bottom = 562.802
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="ResourceBox"]
+margin_right = 512.0
+margin_bottom = 512.0
+rect_scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" parent="ResourceBox/TextureRect" instance=ExtResource( 5 )]
+position = Vector2( 600, 0 )
+scale = Vector2( 20, 20 )
+
+[node name="TextureRect2" type="TextureRect" parent="ResourceBox"]
+margin_top = 30.0
+margin_right = 512.0
+margin_bottom = 542.0
+rect_scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="People" parent="ResourceBox/TextureRect2" instance=ExtResource( 5 )]
+position = Vector2( 600, 0 )
+scale = Vector2( 20, 20 )
+
+[node name="TextureRect3" type="TextureRect" parent="ResourceBox"]
+margin_top = 60.0
+margin_right = 512.0
+margin_bottom = 572.0
+rect_scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Energy" parent="ResourceBox/TextureRect3" instance=ExtResource( 5 )]
+position = Vector2( 600, 0 )
+scale = Vector2( 20, 20 )
+
+[node name="TextureRect4" type="TextureRect" parent="ResourceBox"]
+margin_top = 90.0
+margin_right = 512.0
+margin_bottom = 602.0
+rect_scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Materials" parent="ResourceBox/TextureRect4" instance=ExtResource( 5 )]
+position = Vector2( 600, 0 )
+scale = Vector2( 20, 20 )
 
 [connection signal="pressed" from="NavButton" to="." method="_on_NavButton_pressed"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_PopupMenu_id_pressed"]
+[connection signal="call_shuttle" from="PlanetBox/Planet" to="PlayerShip" method="_on_Planet_call_shuttle"]

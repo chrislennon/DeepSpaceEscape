@@ -33,6 +33,10 @@ Global="*res://Global.gd"
 
 singletons=[ "res://git_api.gdnlib" ]
 
+[global]
+
+size=false
+
 [input]
 
 ui_left={

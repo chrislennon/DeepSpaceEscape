@@ -5,16 +5,17 @@ export var scanable = true
 export var food = 100
 export var energy = 100
 
+signal call_shuttle
+ 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func init(id):
+	pass
 
 
-func _on_PlanetAction_pressed():
-	# This will probably be handled by the RadialMenu instead
+func _on_TextureButton_pressed():
+	print("calling shuttle")
+	emit_signal("call_shuttle", self)
 	pass # Replace with function body.
