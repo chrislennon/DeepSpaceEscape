@@ -1,6 +1,6 @@
 extends Node
 
-var foodDecreaseRatePerPeople = 0.1
+var foodDecreaseRatePerPeople = 0.05
 var timeCounter = 0
 onready var previousTime = OS.get_ticks_msec()
 
@@ -19,7 +19,7 @@ func _process(delta):
 		# decrease resources that are tied to time
 		decrease_food()
 		timeCounter = timeCounter - 1000
-		draw_text()
+		#draw_text()
 		check_game_over()
 		get_node("/root/Scene").find_node("Food").update_healthbar(Global.food)
 		get_node("/root/Scene").find_node("People").update_healthbar(Global.people)
@@ -34,11 +34,6 @@ func _input(ev):
 func decrease_food():
 	Global.food -= floor(foodDecreaseRatePerPeople * Global.people)
 	Global.food = max(Global.food, 0)
-	
-func draw_text():
-	# ugly i know =(
-	var text = "Resources \n" + "Food: " + str(Global.food) + "\n" + "Energy: " + str(Global.energy) + "\n" + "People: " + str(Global.people) + "\n" + "Materials: " + str(Global.materials)
-	get_node("/root/Scene/Resources/ResourcesText").set_text(text)
 
 func check_game_over():
 	if Global.food <= 0:

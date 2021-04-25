@@ -35,6 +35,7 @@ func _ready():
 	overlay.add_stat("People: ", Global, "people", false)
 	overlay.add_stat("System Level: ", Global, "levelnumber", false)
 	add_child(overlay)
+	$debug_overlay.get_child(0).hide()
 	
 	# Planet Generation
 	var planet_box = $PlanetBox
@@ -81,3 +82,8 @@ func _input(ev):
 		$PlayerShip.launch_shuttle($PlanetBox/Planet.rect_global_position)
 
 
+
+
+func _on_CheckBox_pressed():
+	$debug_overlay.get_child(0).show()
+	pass # Replace with function body.

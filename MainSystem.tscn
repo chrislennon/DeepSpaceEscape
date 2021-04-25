@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/space2.2.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/spaceship1.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://ShuttleValue.gd" type="Script" id=17]
 [ext_resource path="res://assets/Roboto-Medium.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://JumpClockFont.tres" type="DynamicFont" id=19]
+[ext_resource path="res://ResourceBox.gd" type="Script" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -172,6 +173,7 @@ margin_left = 4.15161
 margin_top = 412.802
 margin_right = 304.152
 margin_bottom = 562.802
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -251,6 +253,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SystemsLabel" type="RichTextLabel" parent="ResourceBox"]
+margin_top = 150.0
+margin_right = 220.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 200, 0 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "Systems Deep: "
+
+[node name="SystemsValue" type="RichTextLabel" parent="ResourceBox/SystemsLabel"]
+margin_left = 150.0
+margin_right = 370.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 0 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "0"
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 956.008
+margin_top = 574.878
+margin_right = 1023.01
+margin_bottom = 598.878
+text = "debug"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="NavButton" to="." method="_on_NavButton_pressed"]
 [connection signal="id_pressed" from="PopupMenu" to="." method="_on_PopupMenu_id_pressed"]
 [connection signal="call_shuttle" from="PlanetBox/Planet" to="PlayerShip" method="_on_Planet_call_shuttle"]
+[connection signal="pressed" from="CheckBox" to="." method="_on_CheckBox_pressed"]

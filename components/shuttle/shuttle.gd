@@ -3,23 +3,32 @@ extends TextureRect
 export (int) var speed = 200
 var destination = null
 var start_position = Vector2(0,0)
-var waiting = true
+var waiting = false
 var full = false
 
-export var cooldown = 1.0
+export var cooldown = 3.0
 
 func _physics_process(delta):
+	var player_ship = get_node("/root/Scene").find_node("PlayerShip").position
 	if rect_global_position != destination and !full:
+		$Label.hide()
 		rect_global_position = rect_global_position.move_toward(destination, delta * speed)
-	elif rect_global_position == destination and !full:
-		print("im on a planet")
-		full = true
+	elif full and rect_global_position != player_ship:
+		#print("returning")
+		$Label.hide()
+		rect_global_position = rect_global_position.move_toward(player_ship, delta * speed)
+		if rect_global_position == player_ship and full:
+			#print("touching")
+			Global.food += 20
+			Global.shuttles += 1
+			set_process(false)
+			get_parent().remove_child(self)
+	elif rect_global_position == destination and !full and !waiting:
+		#print("im on a planet")
+		waiting = true
 		#set_process(true)
 		$Timer.start()
-		#$Label.show()
-	elif full and waiting:
-		var player_ship = get_node("/root/Scene").find_node("PlayerShip").position
-		rect_global_position = rect_global_position.move_toward(player_ship, delta * speed)
+		$Label.show()
 	elif waiting:
 		pass
 
@@ -34,21 +43,19 @@ func init(dest, start_position):
 
 
 func _ready():
-#	$Label.hide()
-#	$CooldownDisplay.value = 0
-#	$CooldownDisplay.texture_progress = texture_normal
 	$Timer.wait_time = cooldown
-#	set_process(false)
-
+	$CooldownDisplay.value = 0
 
 func _process(delta):
-	#$Label.text = "%3.1f" % $Timer.time_left
-	#$CooldownDisplay.value = int(($Timer.time_left / cooldown) * 100)
+	$Label.text = "%3.1f" % $Timer.time_left
+	$CooldownDisplay.value = int(($Timer.time_left / cooldown) * 100)
+	#print($Timer.time_left)
 	pass
 
 func _on_Timer_timeout():
 	print("resources mined")
 	#$CooldownDisplay.value = 0
 	waiting = false
-	#$Label.hide()
+	full = true
+	$Label.hide()
 	#set_process(false)
