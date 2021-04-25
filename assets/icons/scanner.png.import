@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jump.png-7ae44f12fef95bc97f898cc5cdbab747.stex"
+path="res://.import/scanner.png-7f1d2d0983590b6221fe05798d556749.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Jump.png"
-dest_files=[ "res://.import/Jump.png-7ae44f12fef95bc97f898cc5cdbab747.stex" ]
+source_file="res://assets/icons/scanner.png"
+dest_files=[ "res://.import/scanner.png-7f1d2d0983590b6221fe05798d556749.stex" ]
 
 [params]
 

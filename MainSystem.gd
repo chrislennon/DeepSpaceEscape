@@ -16,6 +16,7 @@ func jumpShip():
 	jumping = true
 	get_node("JumpText").visible = true
 	print("Execute System transition")
+	# TODO Scene transition FTL online/animation flash/load next system
 	SceneChanger.change_scene("res://MainSystem.tscn", 0.1)
 	
 					
@@ -25,7 +26,7 @@ func _ready():
 	get_node("System Clock/Time").set_text(String(systemClock))
 	
 	# debug data
-	var overlay = load("res://debug_overlay.tscn").instance()
+	var overlay = load("res://components/debug_overlay/debug_overlay.tscn").instance()
 	overlay.add_stat("Selected Star ", self, "getSelectedStar", true)
 	add_child(overlay)
 	
@@ -41,7 +42,6 @@ func _process(delta):
 	get_node("System Clock/Time").set_text(String(systemClock))
 	
 	if systemClock <= 0 and !jumping:
-		# TODO Scene transition FTL online/animation flash/load next system
 		jumpShip()
 		pass 
 

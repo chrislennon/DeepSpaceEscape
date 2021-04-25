@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpaceShip-example.jpg-b7e4199b724238d3230b078190b299a5.stex"
+path="res://.import/Jump.png-121934bb9372d044f41462c16bbc5c2e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpaceShip-example.jpg"
-dest_files=[ "res://.import/SpaceShip-example.jpg-b7e4199b724238d3230b078190b299a5.stex" ]
+source_file="res://assets/Jump.png"
+dest_files=[ "res://.import/Jump.png-121934bb9372d044f41462c16bbc5c2e.stex" ]
 
 [params]
 

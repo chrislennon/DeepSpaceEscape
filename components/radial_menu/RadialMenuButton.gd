@@ -5,6 +5,8 @@ export var speed = 0.25
 
 var num
 var active = false
+var planet
+
 
 
 func _ready():
@@ -13,10 +15,12 @@ func _ready():
 	for b in $Buttons.get_children():
 		b.rect_position = rect_position
 	connect("pressed", self, "_on_StartButton_pressed")
+	planet = get_parent().get_parent().scanned
 
 
 func show_menu():
 	print("showing")
+	print(planet)
 	$Buttons.show()
 	var spacing = TAU / num
 	for b in $Buttons.get_children():

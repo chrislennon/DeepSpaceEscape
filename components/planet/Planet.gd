@@ -1,10 +1,9 @@
 extends TextureButton
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export var scanned = false
+export var scanable = true
+export var food = 100
+export var energy = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

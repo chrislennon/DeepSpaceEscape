@@ -26,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-SceneChanger="*res://SceneChanger.tscn"
+SceneChanger="*res://components/scene_changer/SceneChanger.tscn"
 
 [gdnative]
 
