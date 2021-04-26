@@ -37,6 +37,7 @@ singletons=[ "res://git_api.gdnlib" ]
 [global]
 
 size=false
+html=false
 
 [input]
 

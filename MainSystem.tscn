@@ -47,42 +47,6 @@ position = Vector2( 502.829, 274.682 )
 scale = Vector2( 0.656655, 0.656656 )
 texture = ExtResource( 1 )
 
-[node name="System Clock" type="Control" parent="."]
-margin_left = 345.0
-margin_top = 1.0
-margin_right = 604.0
-margin_bottom = 37.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Time" type="Label" parent="System Clock"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -30.0
-margin_right = 30.0
-margin_bottom = 42.0
-custom_fonts/font = ExtResource( 19 )
-text = "300"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="System Clock"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -214.0
-margin_top = 50.0
-margin_right = 214.0
-margin_bottom = 92.0
-custom_fonts/font = ExtResource( 19 )
-text = " seconds until system jump"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PlanetBox" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -95,6 +59,7 @@ margin_left = 4.15161
 margin_top = 412.802
 margin_right = 304.152
 margin_bottom = 562.802
+mouse_filter = 2
 script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,6 +69,7 @@ __meta__ = {
 margin_right = 512.0
 margin_bottom = 512.0
 rect_scale = Vector2( 0.05, 0.05 )
+mouse_filter = 2
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -118,6 +84,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "100"
 __meta__ = {
@@ -129,6 +96,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "food"
 __meta__ = {
@@ -140,6 +108,7 @@ margin_top = 30.0
 margin_right = 512.0
 margin_bottom = 542.0
 rect_scale = Vector2( 0.05, 0.05 )
+mouse_filter = 2
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,6 +123,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "100"
 __meta__ = {
@@ -165,6 +135,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "people"
 __meta__ = {
@@ -176,6 +147,7 @@ margin_top = 60.0
 margin_right = 512.0
 margin_bottom = 572.0
 rect_scale = Vector2( 0.05, 0.05 )
+mouse_filter = 2
 texture = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,6 +162,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "100"
 __meta__ = {
@@ -201,6 +174,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "energy"
 __meta__ = {
@@ -212,6 +186,7 @@ margin_top = 90.0
 margin_right = 512.0
 margin_bottom = 602.0
 rect_scale = Vector2( 0.05, 0.05 )
+mouse_filter = 2
 texture = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -226,6 +201,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "100"
 __meta__ = {
@@ -237,6 +213,7 @@ margin_left = 50.0
 margin_right = 270.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "mat."
 __meta__ = {
@@ -248,6 +225,7 @@ margin_top = 120.0
 margin_right = 220.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "Shuttles: "
 
@@ -256,6 +234,7 @@ margin_left = 100.0
 margin_right = 320.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "0"
 __meta__ = {
@@ -267,6 +246,7 @@ margin_top = 150.0
 margin_right = 220.0
 margin_bottom = 190.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "Systems Deep: "
 __meta__ = {
@@ -278,6 +258,7 @@ margin_left = 150.0
 margin_right = 370.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 text = "0"
 __meta__ = {
@@ -297,6 +278,7 @@ __meta__ = {
 }
 
 [node name="JumpBox" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="JumpText" type="TextureRect" parent="JumpBox"]
 visible = false
@@ -305,6 +287,45 @@ margin_top = 119.886
 margin_right = 769.962
 margin_bottom = 419.886
 texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ClockCanvas" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="System Clock" type="Control" parent="ClockCanvas"]
+margin_left = 345.0
+margin_top = 1.0
+margin_right = 604.0
+margin_bottom = 37.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="ClockCanvas/System Clock"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -30.0
+margin_right = 30.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 19 )
+text = "300"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ClockCanvas/System Clock"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -214.0
+margin_top = 50.0
+margin_right = 214.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 19 )
+text = " seconds until system jump"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

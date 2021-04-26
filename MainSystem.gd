@@ -25,7 +25,7 @@ func _ready():
 	# Initialize scene timer
 	
 	var display_time = "%.1f" % (max(systemClock, 0))
-	get_node("System Clock/Time").set_text(display_time)
+	get_node("ClockCanvas/System Clock/Time").set_text(display_time)
 	
 	# debug data
 	var overlay = load("res://components/debug_overlay/debug_overlay.tscn").instance()
@@ -64,7 +64,7 @@ func _process(delta):
 	# Progress scene timer
 	systemClock -=delta
 	var display_time = "%.1f" % (max(systemClock, 0))
-	get_node("System Clock/Time").set_text(display_time)
+	get_node("ClockCanvas/System Clock/Time").set_text(display_time)
 	# TODO Warning prompt X seconds in this system
 	if systemClock <= 0.5 and !jumping:
 		jumpShip()
