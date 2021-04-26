@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dripping-blade.png-24004f2b0e03edf5e11400762bcf6016.stex"
+path="res://.import/icon_people_64.png-fd0de36d26ddaff21b971eff66f97eee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/dripping-blade.png"
-dest_files=[ "res://.import/dripping-blade.png-24004f2b0e03edf5e11400762bcf6016.stex" ]
+source_file="res://assets/icons/icon_people_64.png"
+dest_files=[ "res://.import/icon_people_64.png-fd0de36d26ddaff21b971eff66f97eee.stex" ]
 
 [params]
 

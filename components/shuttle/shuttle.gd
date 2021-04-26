@@ -2,7 +2,7 @@ extends TextureRect
 
 export (int) var speed = 200
 var destination = null
-var start_position = Vector2(0,0)
+#var start_position = Vector2(0,0)
 var waiting = false
 var full = false
 var base_gather_food = 20
@@ -15,19 +15,19 @@ func _physics_process(delta):
 		$Label.hide()
 		rect_global_position = rect_global_position.move_toward(destination, delta * speed)
 	elif full and rect_global_position != player_ship:
-		#print("returning")
+		# print("returning")
 		$Label.hide()
 		rect_global_position = rect_global_position.move_toward(player_ship, delta * speed)
 		if rect_global_position == player_ship and full:
-			#print("touching")
+			# print("touching")
 			Global.food = clamp(Global.food + base_gather_food, 0, Global.max_food)
 			Global.shuttles = clamp(Global.shuttles + 1, 0, Global.max_shuttles)
+			Global.people = clamp(Global.people + Global.shuttle_people, 0, Global.max_people)
 			set_process(false)
 			get_parent().remove_child(self)
 	elif rect_global_position == destination and !full and !waiting:
-		#print("im on a planet")
+		# print("im on a planet")
 		waiting = true
-		#set_process(true)
 		$Timer.start()
 		$Label.show()
 	elif waiting:
@@ -36,27 +36,18 @@ func _physics_process(delta):
 func init(dest, start_position):
 	rect_global_position = start_position
 	destination = dest.rect_global_position
-	print(dest)
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 
 func _ready():
 	$Timer.wait_time = cooldown
 	$CooldownDisplay.value = 0
 
-func _process(delta):
+func _process(_delta):
 	$Label.text = "%3.1f" % $Timer.time_left
 	$CooldownDisplay.value = int(($Timer.time_left / cooldown) * 100)
-	#print($Timer.time_left)
 	pass
 
 func _on_Timer_timeout():
-	print("resources mined")
-	#$CooldownDisplay.value = 0
+	# print("resources mined")
 	waiting = false
 	full = true
 	$Label.hide()
-	#set_process(false)

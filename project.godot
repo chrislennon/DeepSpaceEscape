@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 SceneChanger="*res://components/scene_changer/SceneChanger.tscn"
 Global="*res://Global.gd"
+ui_signals="*res://ui_signals.gd"
 
 [gdnative]
 
@@ -91,11 +92,6 @@ left_click={
 give_food={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
- ]
-}
-launch_shuttle={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"unicode":0,"echo":false,"script":null)
  ]
 }
 

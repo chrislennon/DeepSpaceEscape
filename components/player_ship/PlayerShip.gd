@@ -10,7 +10,7 @@ func get_automatedSpeed():
 	velocity.y -= 1
 	velocity = velocity.normalized() * get_tree().get_current_scene().traversalSpeed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Use input temporarily to artificially progress
 	get_automatedSpeed()
 	velocity = move_and_slide(velocity)

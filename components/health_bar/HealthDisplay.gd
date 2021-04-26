@@ -22,7 +22,7 @@ func _ready():
 		healthbar.max_value = Global.max_materials
 		healthbar.value = Global.materials
 	
-func _process(delta):
+func _process(_delta):
 	global_rotation = 0
 	
 func update_healthbar(value):

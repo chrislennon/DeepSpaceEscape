@@ -6,7 +6,6 @@ var traversalSpeed = traversalDistance/systemClock
 var selectedStar = 0
 var jumping = false
 
-onready var menuButton = $PopupMenu
 onready var jumpText = $JumpBox/JumpText
 
 func getSelectedStar():
@@ -40,8 +39,6 @@ func _ready():
 	$debug_overlay.get_child(0).hide()
 	generate_system()
 
-
-
 func generate_system():
 	# Planet Generation
 	var planet_box = $PlanetBox
@@ -59,39 +56,21 @@ func createPlanet():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var num = rng.randi_range(0, 1)
-	
+	# print("created planet type: " + str(num))
 	planet.init(num)
 	return planet
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Progress scene timer
 	systemClock -=delta
 	var display_time = "%.1f" % (max(systemClock, 0))
 	get_node("System Clock/Time").set_text(display_time)
 	# TODO Warning prompt X seconds in this system
-
 	if systemClock <= 0.5 and !jumping:
 		jumpShip()
 		pass 
 
 	pass
-
-func _on_NavButton_pressed():
-	$PopupMenu.visible = !$PopupMenu.visible
-
-func _on_PopupMenu_id_pressed(id):
-	print("Star ID:")
-	print(id)
-	selectedStar = id
-	pass 
-	
-func _input(ev):
-	if Input.is_action_pressed("launch_shuttle"):
-		$PlayerShip.launch_shuttle($PlanetBox/Planet.rect_global_position)
-
-
-
 
 func _on_CheckBox_pressed():
 	$debug_overlay.get_child(0).show()

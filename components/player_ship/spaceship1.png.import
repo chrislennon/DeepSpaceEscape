@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/all-for-one.png-373ed820ee471e853c114664fe2f7967.stex"
+path="res://.import/spaceship1.png-6dd663249fe23d0ef0d057c7da225650.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/all-for-one.png"
-dest_files=[ "res://.import/all-for-one.png-373ed820ee471e853c114664fe2f7967.stex" ]
+source_file="res://components/player_ship/spaceship1.png"
+dest_files=[ "res://.import/spaceship1.png-6dd663249fe23d0ef0d057c7da225650.stex" ]
 
 [params]
 
