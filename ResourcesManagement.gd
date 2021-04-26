@@ -1,6 +1,7 @@
 extends Node
 
 var foodDecreaseRatePerPeople = 0.05
+var deathRateNoFood = 0.05
 var timeCounter = 0
 onready var previousTime = OS.get_ticks_msec()
 
@@ -21,22 +22,23 @@ func _process(delta):
 		timeCounter = timeCounter - 1000
 		#draw_text()
 		check_game_over()
-		get_node("/root/Scene").find_node("Food").update_healthbar(Global.food)
-		get_node("/root/Scene").find_node("People").update_healthbar(Global.people)
-		get_node("/root/Scene").find_node("Energy").update_healthbar(Global.energy)
-		get_node("/root/Scene").find_node("Materials").update_healthbar(Global.materials)
 	pass
 
 func _input(ev):
 	if Input.is_action_pressed("give_food"):
-		Global.food += 10
+		Global.food = clamp(Global.food + 10, 0, Global.max_food)
 
 func decrease_food():
 	Global.food -= floor(foodDecreaseRatePerPeople * Global.people)
 	Global.food = max(Global.food, 0)
+	if Global.food == 0:
+		# People eat people
+		Global.people -= floor(deathRateNoFood * Global.people)
 
 func check_game_over():
 	if Global.food <= 0:
+		SceneChanger.change_scene("res://GameOverScene.tscn", 0.1)
+	if Global.people <= 0:
 		print("game technically over...")
 		pass
 

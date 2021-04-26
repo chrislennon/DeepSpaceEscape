@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocket-flight.png-d66ed7a4aa1d6f18820cba2423ce3260.stex"
+path="res://.import/p5shaded.png-7e0179cb9c1a882ef30c2e5f7a86df26.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://components/planet/rocket-flight.png"
-dest_files=[ "res://.import/rocket-flight.png-d66ed7a4aa1d6f18820cba2423ce3260.stex" ]
+source_file="res://components/planet/p5shaded.png"
+dest_files=[ "res://.import/p5shaded.png-7e0179cb9c1a882ef30c2e5f7a86df26.stex" ]
 
 [params]
 

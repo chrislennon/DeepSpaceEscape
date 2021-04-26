@@ -11,12 +11,16 @@ onready var healthbar = $HealthBar
 func _ready():
 	if resourceId == 0:
 		healthbar.max_value = Global.max_food
+		healthbar.value = Global.food
 	if resourceId == 1:
 		healthbar.max_value = Global.max_people
+		healthbar.value = Global.people
 	if resourceId == 2:
 		healthbar.max_value = Global.max_energy
+		healthbar.value = Global.energy
 	if resourceId == 3:
 		healthbar.max_value = Global.max_materials
+		healthbar.value = Global.materials
 	
 func _process(delta):
 	global_rotation = 0

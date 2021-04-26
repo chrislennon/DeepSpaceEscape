@@ -5,6 +5,7 @@ var destination = null
 var start_position = Vector2(0,0)
 var waiting = false
 var full = false
+var base_gather_food = 20
 
 export var cooldown = 3.0
 
@@ -19,8 +20,8 @@ func _physics_process(delta):
 		rect_global_position = rect_global_position.move_toward(player_ship, delta * speed)
 		if rect_global_position == player_ship and full:
 			#print("touching")
-			Global.food += 20
-			Global.shuttles += 1
+			Global.food = clamp(Global.food + base_gather_food, 0, Global.max_food)
+			Global.shuttles = clamp(Global.shuttles + 1, 0, Global.max_shuttles)
 			set_process(false)
 			get_parent().remove_child(self)
 	elif rect_global_position == destination and !full and !waiting:
