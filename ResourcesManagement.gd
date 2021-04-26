@@ -1,7 +1,7 @@
 extends Node
 
 var foodDecreaseRatePerPeople = 0.05
-var deathRateNoFood = 0.05
+var deathRateNoFood = 0.10
 var timeCounter = 0
 onready var previousTime = OS.get_ticks_msec()
 
@@ -33,13 +33,14 @@ func decrease_food():
 	Global.food = max(Global.food, 0)
 	if Global.food == 0:
 		# People eat people
-		Global.people -= floor(deathRateNoFood * Global.people)
+		Global.people -= ceil(deathRateNoFood * Global.people)
 
 func check_game_over():
-	if Global.food <= 0:
-		SceneChanger.change_scene("res://GameOverScene.tscn", 0.1)
+	#if Global.food <= 0:
+		
 	if Global.people <= 0:
 		print("game technically over...")
+		SceneChanger.change_scene("res://GameOverScene.tscn", 0.1)
 		pass
 
 #$HealthDisplay.update_healthbar(health)
